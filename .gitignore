@@ -1,0 +1,39 @@
+# https://github.com/github/gitignore
+
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*-Darwin-x86_64
+*-Linux-x86_64
+*-Linux-arm
+
+# Test binary, build with `go test -c`
+# Also, profiling and benchmarking data
+*.test
+.profiling/
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# OS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Frontend
+.sass-cache/
+cache/*
+.tmp/
+dist/
+tmp/
+bower_components/
+node_modules/
+bmp_modules/
+npm-debug.log
+
+coverage
