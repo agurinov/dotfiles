@@ -1,9 +1,12 @@
-.PHONY: install uninstall
+.PHONY: bash vim tmux
 
-install: .bash_profile .bashrc
-	cp .bash_profile ~/.bash_profile
-	cp .bashrc ~/.bashrc
+bash: bash/.bash_profile bash/.bashrc
+	cp bash/.bash_profile ~/.bash_profile
+	cp bash/.bashrc ~/.bashrc
 
-uninstall:
-	rm ~/.bash_profile
-	rm ~/.bashrc
+vim:
+	$(MAKE) -C vim
+
+tmux: tmux/.tmux.conf
+	cp tmux/.tmux.conf ~/.tmux.conf
+	tmux source-file ~/.tmux.conf
