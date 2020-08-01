@@ -2,9 +2,21 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+let g:NERDTreeShowHidden=1
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+
 Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'morhetz/gruvbox'
+Plug 'JamshedVesuna/vim-markdown-preview'
+
 Plug 'editorconfig/editorconfig-vim'
+let g:EditorConfig_max_line_indicator = "line"
+
+Plug 'hashivim/vim-terraform'
+let g:terraform_fmt_on_save=1
 
 call plug#end()
 
@@ -17,8 +29,6 @@ set tabstop=4
 filetype plugin indent on
 syntax on
 
-let NERDTreeShowHidden=1
-
 " Coloscheme settings
 set t_Co=256
 colorscheme gruvbox
@@ -28,6 +38,16 @@ set background=dark
 set number
 set ruler
 set numberwidth=5
+
+" Disable arrow buttins
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
 
 set modifiable
 set wrap
