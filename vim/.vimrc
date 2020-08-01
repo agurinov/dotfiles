@@ -7,6 +7,9 @@ let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
+map <C-\> :NERDTreeToggle<CR>
+"map <C-]> :tabn<CR>
+"map <C-[> :tabp<CR>
 
 Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'morhetz/gruvbox'
@@ -49,6 +52,7 @@ nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 
+set nocompatible
 set modifiable
 set wrap
 set linebreak
@@ -56,7 +60,7 @@ set autoindent
 set smartindent
 
 " Display extra whitespaces
-set list listchars=tab:»·,space:·,trail:·,nbsp:·,eol:¬
+set list listchars=tab:»\ ,space:·,trail:·,nbsp:·,eol:¬
 
 set showcmd
 
@@ -70,5 +74,3 @@ set noswapfile
 
 set hidden
 
-" Key bindings mappings
-map <C-\> :NERDTreeToggle<CR>
