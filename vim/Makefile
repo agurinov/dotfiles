@@ -3,7 +3,7 @@
 all: vimrc ~/.vim/autoload/plug.vim plugins
 
 vimrc:
-	cp .vimrc ~/.vimrc
+	cp vimrc ~/.vimrc
 
 ~/.vim/autoload/plug.vim:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \

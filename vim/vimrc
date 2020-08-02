@@ -13,7 +13,6 @@ map <C-\> :NERDTreeToggle<CR>
 
 Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'morhetz/gruvbox'
-Plug 'JamshedVesuna/vim-markdown-preview'
 
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_max_line_indicator = "line"
