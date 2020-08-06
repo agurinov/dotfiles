@@ -1,4 +1,6 @@
-.PHONY: bash vim tmux
+.PHONY: all bash vim tmux
+
+all: bash vim tmux
 
 bash:
 	$(MAKE) -C bash
