@@ -22,7 +22,7 @@ let g:terraform_fmt_on_save=1
 
 call plug#end()
 
-" Configuration for vim and plugins
+" Configuration for vim.
 set encoding=utf-8
 
 set laststatus=2
@@ -36,12 +36,13 @@ set t_Co=256
 colorscheme gruvbox
 set background=dark
 
-" Line numbers
+" Line numbers and positioning.
 set number
+set scrolloff=5
 set ruler
 set numberwidth=5
 
-" Disable arrow buttins
+" Disable arrow buttons
 inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
