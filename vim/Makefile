@@ -7,7 +7,7 @@ vimrc:
 
 .PHONY: ftplugin
 ftplugin:
-	cp -Rv ftplugin ~/.vim/ftplugin
+	cp -Rfv ftplugin/* ~/.vim/ftplugin
 
 ~/.vim/autoload/plug.vim:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
