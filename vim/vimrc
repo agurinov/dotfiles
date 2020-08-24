@@ -14,19 +14,8 @@ Plug 'rodjek/vim-puppet'
 
 Plug 'dense-analysis/ale'
 let g:ale_linters_explicit = 1
-let g:ale_linters = {
-\	'puppet': ['puppetlint', 'puppet'],
-\	'go': ['golangci-lint', 'gofmt', 'govet'],
-\	'yaml': ['yamllint'],
-\}
-let g:ale_fixers = {
-\	'puppet': ['puppetlint'],
-\	'go': ['gofmt'],
-\}
 let g:ale_lint_on_enter = 0
 let g:ale_fix_on_save = 1
-" Puppet linter settings
-let g:ale_puppet_puppetlint_options = '--no-autoloader_layout-check --no-config'
 
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_max_line_indicator = "line"
