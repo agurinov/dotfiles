@@ -1,9 +1,12 @@
+# First loaded file when interactive non-login shell.
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
 # Redeclare prompt
+PROMPT_COMMAND='set_prompt'
 set_prompt () {
 	Reset='\[\e[0m\]'
 	RedBlink='\[\e[5;31m\]'
@@ -30,10 +33,11 @@ set_prompt () {
 	# Write prompt marker and reset.
 	PS1+="${Cyan}] \$ ${Reset}"
 }
-PROMPT_COMMAND='set_prompt'
 
 # docker, docker-compose, docker-machine
 export COMPOSE_INTERACTIVE_NO_CLI=1
 
-# User specific aliases and functions
-alias ls='ls -lAhF'
+# Load user defined aliases.
+if [ -n "$BASH" ] && [ -r ~/.bash_aliases ]; then
+	. ~/.bash_aliases
+fi
