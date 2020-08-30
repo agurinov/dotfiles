@@ -1,15 +1,8 @@
-.PHONY: all bash vim tmux zsh
+COMPONENTS := bash scripts vim tmux zsh
 
-all: bash vim tmux zsh
+.PHONY: all $(COMPONENTS)
 
-bash:
-	$(MAKE) -C bash
+all: $(COMPONENTS)
 
-vim:
-	$(MAKE) -C vim
-
-tmux:
-	$(MAKE) -C tmux
-
-zsh:
-	$(MAKE) -C zsh
+$(COMPONENTS):
+	$(MAKE) -C $@

@@ -41,3 +41,5 @@ export COMPOSE_INTERACTIVE_NO_CLI=1
 if [ -n "$BASH" ] && [ -r ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
+
+PATH="$HOME/bin:$PATH"
