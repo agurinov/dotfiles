@@ -75,11 +75,11 @@ function dotfiles_install_wget() {
 }
 
 # Choose proper way to get source files.
-if [ -n `command -v git` ]; then
+if [[ -n `command -v git` ]]; then
 	dotfiles_install_git
-elif [ -n `command -v curl` ]; then
+elif [[ -n `command -v curl` ]]; then
 	dotfiles_install_curl
-elif [ -n `command -v wget` ]; then
+elif [[ -n `command -v wget` ]]; then
 	dotfiles_install_wget
 else
 	echo 'Cannot get dotfiles sources'
