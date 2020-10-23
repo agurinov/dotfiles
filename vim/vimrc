@@ -37,7 +37,7 @@ syntax on
 
 " Coloscheme settings
 set t_Co=256
-colorscheme gruvbox
+silent! colorscheme gruvbox
 set background=dark
 
 " Line numbers and positioning.

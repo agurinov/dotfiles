@@ -12,6 +12,7 @@ ftplugin:
 	cp -Rf ftplugin/* ~/.vim/ftplugin
 
 ~/.vim/autoload/plug.vim:
+	mkdir -p ~/.vim/autoload
 	cp -f autoload/plug.vim ~/.vim/autoload/plug.vim
 
 .PHONY: plugins
