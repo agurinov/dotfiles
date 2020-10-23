@@ -10,7 +10,7 @@ if [[ ! -w /usr/local ]]; then
 fi
 
 # Remote sources.
-GO_URL=https://dl.google.com/go/go${VERSION}.`uname·-s`-amd64.tar.gz
+GO_URL=https://dl.google.com/go/go${VERSION}.`uname -s`-amd64.tar.gz
 
 # Local paths.
 GO_INSTALL_DIR=/usr/local/go${VERSION}
