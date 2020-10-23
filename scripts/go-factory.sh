@@ -8,7 +8,9 @@ VERSION=$2
 # go_install fetches go source code.
 function go_install() {
 	curl https://dl.google.com/go/go${VERSION}.`uname -s`-amd64.tar.gz \
-		-o /usr/local/go${VERSION}.`uname -s`-amd64.tar.gz \
+		--location \
+		--create_dirs \
+		--output /usr/local/go${VERSION}.`uname -s`-amd64.tar.gz \
 		--fail # return nonzero exit code if 404 or any error from server.
 
 	mkdir -p /usr/local/go${VERSION}
