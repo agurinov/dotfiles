@@ -1,27 +1,38 @@
 #!/usr/bin/env bash
 set -eu
 
-
 VERSION=$2
 
+# Script requires root permissions.
+if [[ ! -w /usr/local ]]; then
+	echo 'Permission denied on /usr/local'
+	exit 1
+fi
+
+# Remote sources.
+GO_URL=https://dl.google.com/go/go${VERSION}.`uname·-s`-amd64.tar.gz
+
+# Local paths.
+GO_INSTALL_DIR=/usr/local/go${VERSION}
+GO_SRC_TAR=${GO_INSTALL_DIR}/go.tar.gz
 
 # go_install fetches go source code.
 function go_install() {
-	curl https://dl.google.com/go/go${VERSION}.`uname -s`-amd64.tar.gz \
+	mkdir -p $GO_INSTALL_DIR
+
+	curl $GO_URL \
 		--location \
 		--create-dirs \
-		--output /usr/local/go${VERSION}.`uname -s`-amd64.tar.gz \
+		--output $GO_SRC_TAR \
 		--fail # return nonzero exit code if 404 or any error from server.
 
-	mkdir -p /usr/local/go${VERSION}
-
 	tar -xv \
-		-f /usr/local/go${VERSION}.`uname -s`-amd64.tar.gz \
-		-C /usr/local/go${VERSION}
+		--strip 1 \
+		-f $GO_SRC_TAR \
+		-C $GO_INSTALL_DIR
 
-	rm -rf /usr/local/go${VERSION}.`uname -s`-amd64.tar.gz
+	rm -f $GO_SRC_TAR
 }
-
 
 # go_switch set links to use concrete golang version.
 function go_switch() {
@@ -44,7 +55,6 @@ function go_switch() {
 }
 
 case "$1" in
-
 	'install' )
 		go_install
 		;;
@@ -57,6 +67,5 @@ case "$1" in
 		echo 'Unknown command. Use `install` or `switch`'
 		exit 1
 		;;
-
 esac
 
