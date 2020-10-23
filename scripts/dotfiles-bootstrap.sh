@@ -13,8 +13,8 @@ GIT_WORK_TREE="${HOME}/dotfiles"
 # dotfiles_reset just ensures that dotfiles dir
 # will be present and empty.
 function dotfiles_reset() {
+	rm -rf ${GIT_WORK_TREE}
 	mkdir -p $GIT_WORK_TREE
-	rm -rf "${GIT_WORK_TREE}/"
 }
 
 # dotfiles_install_git installs source code via git.
