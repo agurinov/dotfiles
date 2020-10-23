@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eu
+set -eux
 
 # Remote sources.
 GIT_URL='https://github.com/agurinov/dotfiles.git'
