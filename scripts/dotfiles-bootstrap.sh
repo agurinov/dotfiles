@@ -63,6 +63,7 @@ function dotfiles_install_wget() {
 	dotfiles_reset
 
 	wget $TAR_URL \
+		--quiet \
 		-O ${GIT_WORK_TREE}/dotfiles.tar.gz
 
 	tar -xv \
