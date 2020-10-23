@@ -9,7 +9,7 @@ VERSION=$2
 function go_install() {
 	curl https://dl.google.com/go/go${VERSION}.`uname -s`-amd64.tar.gz \
 		--location \
-		--create_dirs \
+		--create-dirs \
 		--output /usr/local/go${VERSION}.`uname -s`-amd64.tar.gz \
 		--fail # return nonzero exit code if 404 or any error from server.
 
