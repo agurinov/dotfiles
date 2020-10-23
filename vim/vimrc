@@ -64,7 +64,12 @@ set autoindent
 set smartindent
 
 " Display extra whitespaces
-set list listchars=tab:»\ ,space:·,trail:·,nbsp:·,eol:¬
+set list
+if has("patch-7.4.710")
+	set listchars=tab:»\ ,space:·,trail:·,nbsp:·,eol:¬
+else
+	set listchars=tab:»\ ,trail:·,nbsp:·,eol:¬
+endif
 
 set showcmd
 
