@@ -1,9 +1,7 @@
 ## Install
 
 ```bash
-curl https://raw.githubusercontent.com/agurinov/dotfiles/master/scripts/dotfiles-bootstrap.sh \
-	--location \
-	--fail | bash
+curl https://raw.githubusercontent.com/agurinov/dotfiles/master/scripts/dotfiles-bootstrap.sh | bash
 ```
 
 ```bash
