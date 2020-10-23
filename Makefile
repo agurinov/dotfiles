@@ -1,4 +1,4 @@
-COMPONENTS := bash scripts vim tmux
+COMPONENTS := bash scripts tmux vim
 
 .PHONY: all $(COMPONENTS)
 
