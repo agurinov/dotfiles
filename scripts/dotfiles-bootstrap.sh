@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-set -eux
+set -eu
+
+# Script does not require superuser rights.
 
 # Remote sources.
 GIT_URL='https://github.com/agurinov/dotfiles.git'

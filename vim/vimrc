@@ -1,5 +1,5 @@
 " Plugins installed via https://github.com/junegunn/vim-plug
-call plug#begin('~/.vim/plugged')
+silent! call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 let g:NERDTreeShowHidden=1
