@@ -36,8 +36,8 @@ function go_install() {
 
 # go_switch set links to use concrete golang version.
 function go_switch() {
-	if [ -d "/usr/local/go${VERSION}/go" ]; then
-		ln -sfn /usr/local/go${VERSION}/go /usr/local/go
+	if [ -d $GO_INSTALL_DIR ]; then
+		ln -sfn $GO_INSTALL_DIR /usr/local/go
 	else
 		echo "Version ${VERSION} not installed."
 		echo "Try \`go-factory install ${VERSION}\`"
@@ -46,8 +46,8 @@ function go_switch() {
 
 	for BIN in 'go' 'gofmt' 'godoc'
 	do
-		if [ -x "/usr/local/go${VERSION}/go/bin/${BIN}" ]; then
-			ln -sf /usr/local/go${VERSION}/go/bin/${BIN} /usr/local/bin/${BIN}
+		if [ -x ${GO_INSTALL_DIR}/bin/${BIN} ]; then
+			ln -sf ${GO_INSTALL_DIR}/bin/${BIN} /usr/local/bin/${BIN}
 		else
 			rm -f /usr/local/bin/${BIN}
 		fi
