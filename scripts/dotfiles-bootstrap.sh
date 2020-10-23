@@ -58,7 +58,7 @@ GIT_INSTALLED=`command -v git`
 CURL_INSTALLED=`command -v curl`
 WGET_INSTALLED=`command -v wget`
 
-dotfiles_install_curl()
+dotfiles_install_curl
 
 # Install them on system.
 make -C "${HOME}/dotfiles"
