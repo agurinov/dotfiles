@@ -12,6 +12,19 @@ TAR_URL='https://github.com/agurinov/dotfiles/archive/master.tar.gz'
 GIT_DIR="${HOME}/dotfiles/.git"
 GIT_WORK_TREE="${HOME}/dotfiles"
 
+# check checks that script can be properly run at this system.
+function check() {
+	# All required binaries exists.
+	required_bins='tar'
+	for bin in $required_bins; do
+		if [[ -z `command -v $bin` ]]; then
+			echo "\`$bin\` required"
+			exit 1
+		fi
+	done
+}
+check
+
 # dotfiles_reset just ensures that dotfiles dir
 # will be present and empty.
 function dotfiles_reset() {

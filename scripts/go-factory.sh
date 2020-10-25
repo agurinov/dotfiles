@@ -1,13 +1,30 @@
 #!/usr/bin/env bash
 set -eu
 
+# This script installs golang concrete version.
+# Install is performed to separate directory so you can
+# switch bettwen multiple versions.
+
 VERSION=$2
 
-# Script requires root permissions.
-if [[ ! -w /usr/local ]]; then
-	echo 'Permission denied on /usr/local'
-	exit 1
-fi
+# check checks that script can be properly run at this system.
+function check() {
+	# All required binaries exists.
+	required_bins='curl tar uname'
+	for bin in $required_bins; do
+		if [[ -z `command -v $bin` ]]; then
+			echo "\`$bin\` required"
+			exit 1
+		fi
+	done
+
+	# Script requires root permissions.
+	if [[ ! -w /usr/local ]]; then
+		echo 'Permission denied on /usr/local'
+		exit 1
+	fi
+}
+check
 
 # Remote sources.
 GO_URL=https://dl.google.com/go/go${VERSION}.`uname -s`-amd64.tar.gz
@@ -44,7 +61,7 @@ function go_switch() {
 		exit 1
 	fi
 
-	for BIN in 'go' 'gofmt' 'godoc'
+	for BIN in 'go gofmt godoc'
 	do
 		if [ -x ${GO_INSTALL_DIR}/bin/${BIN} ]; then
 			ln -sf ${GO_INSTALL_DIR}/bin/${BIN} /usr/local/bin/${BIN}
