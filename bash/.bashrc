@@ -42,4 +42,8 @@ if [ -n "$BASH" ] && [ -r ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
+# Use vim as default editor for all.
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 PATH="$HOME/bin:$PATH"
