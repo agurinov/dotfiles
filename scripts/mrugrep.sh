@@ -42,12 +42,12 @@ esac
 
 # filter_log_files_by_datetime returns list of files with correct date and time.
 function filter_log_files_by_datetime() {
-			first='2020-10-23T18:00:05.646841+03:00 totem-refresh[7855]: {...}'
-			last='2020-10-23T19:00:02.641066+03:00 totem-refresh[7855]: {...}'
+	first='2020-10-23T18:00:05.646841+03:00 totem-refresh[7855]: {...}'
+	last='2020-10-23T19:00:02.641066+03:00 totem-refresh[7855]: {...}'
 
-			# Use datetime pattern in this log files to determine range.
-			echo $first | awk -F "$AWK_SEPARATOR" '{print $1; print $2}'
-			echo $last | awk -F "$AWK_SEPARATOR" '{print $1; print $2}'
+	# Use datetime pattern in this log files to determine range.
+	echo $first | awk -F "$AWK_SEPARATOR" '{print $1; print $2}'
+	echo $last | awk -F "$AWK_SEPARATOR" '{print $1; print $2}'
 
 	#for filename in ${GLOBS[@]}; do
 	#	if [[ -r $filename ]]; then
