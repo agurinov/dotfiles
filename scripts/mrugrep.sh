@@ -31,7 +31,11 @@ case ${SERVICE} in
 			/mnt/maillogs/ovod{1,2,3,10,11}/totem-refresh.log
 			/mnt/maillogs/ovod{1,2,3,10,11}/totem-refresh.log*
 		)
-		AWK_SEPARATOR='[ T]'
+		GLOBS=(
+			/Users/a.gurinov/dotfiles/ovod{1,2,3,10,11}/totem-refresh.log
+		)
+		AWK_DATETIME_POSITION='1'
+		AWK_DATETIME_FORMAT='%Y-%m-%dT'
 		;;
 
 	* )
@@ -42,19 +46,32 @@ esac
 
 # filter_log_files_by_datetime returns list of files with correct date and time.
 function filter_log_files_by_datetime() {
-	first='2020-10-23T18:00:05.646841+03:00 totem-refresh[7855]: {...}'
-	last='2020-10-23T19:00:02.641066+03:00 totem-refresh[7855]: {...}'
-
 	# Use datetime pattern in this log files to determine range.
-	echo $first | awk -F "$AWK_SEPARATOR" '{print $1; print $2}'
-	echo $last | awk -F "$AWK_SEPARATOR" '{print $1; print $2}'
+	AWK_COMMAND='
+		# Extract datetime from first log entry.
+		NR == 1 {
+			firstdt = $DateTimePosition
+		}
 
-	#for filename in ${GLOBS[@]}; do
-	#	if [[ -r $filename ]]; then
-	#		#first=`head -1 $filename`
-	#		#last=`tail -1 $filename`
-	#	fi
-	#done
+		# Check the desired datetime in range of current file.
+		END {
+			# Extract datetime from last log entry.
+			lastdt = $DateTimePosition
+
+			print FILENAME
+			print firstdt
+			print lastdt
+		}
+	'
+
+	for filename in ${GLOBS[@]}; do
+		if [[ -r $filename ]]; then
+			awk \
+				-v DateTimePosition="$AWK_DATETIME_POSITION" \
+				-v DateTimeFormat="$AWK_DATETIME_FORMAT" \
+				"$AWK_COMMAND" $filename
+		fi
+	done
 }
 
 # Get log files than may contain useful information.
