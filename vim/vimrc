@@ -11,6 +11,7 @@ map <C-\> :NERDTreeToggle<CR>
 
 Plug 'morhetz/gruvbox'
 Plug 'rodjek/vim-puppet'
+Plug 'ekalinin/Dockerfile.vim'
 
 Plug 'dense-analysis/ale'
 let g:ale_linters_explicit = 1
