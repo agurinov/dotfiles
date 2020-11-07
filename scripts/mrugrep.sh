@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eu
+set -eu -o pipefail
 
 SERVICE=$1
 #DATE=$2

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eu
+set -eu -o pipefail
 
 # Script does not require superuser rights.
 
@@ -43,6 +43,7 @@ function dotfiles_install_git() {
 
 		git \
 			--git-dir=$GIT_DIR \
+			--work-tree=$GIT_WORK_TREE \
 			pull \
 			origin master
 	else

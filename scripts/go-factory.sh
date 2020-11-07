@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eu
+set -eu -o pipefail
 
 # This script installs golang concrete version.
 # Install is performed to separate directory so you can
