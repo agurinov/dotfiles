@@ -11,12 +11,7 @@ VERSION=$2
 function check() {
 	# All required binaries exists.
 	required_bins='curl tar uname'
-	for bin in $required_bins; do
-		if [[ -z `command -v $bin` ]]; then
-			echo "\`$bin\` required"
-			exit 1
-		fi
-	done
+	echo $required_bins | xargs -n1 command -V
 
 	# Script requires root permissions.
 	if [[ ! -w /usr/local ]]; then

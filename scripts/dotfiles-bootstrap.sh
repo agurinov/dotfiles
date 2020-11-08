@@ -16,12 +16,7 @@ GIT_WORK_TREE="${HOME}/dotfiles"
 function check() {
 	# All required binaries exists.
 	required_bins='tar'
-	for bin in $required_bins; do
-		if [[ -z `command -v $bin` ]]; then
-			echo "\`$bin\` required"
-			exit 1
-		fi
-	done
+	echo $required_bins | xargs -n1 command -V
 }
 check
 
