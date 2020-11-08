@@ -1,20 +1,18 @@
 .PHONY: all
-all: vimrc ftplugin ~/.vim/autoload/plug.vim plugins
+all: files ftplugin plugins
 
-.PHONY: vimrc
-vimrc:
-	mkdir -p ~/.vim
-	cp vimrc ~/.vim/vimrc
+.PHONY: files
+files: vimrc
+	mkdir -p $(HOME)/.vim
+	cp -f $^ $(HOME)/.vim
 
 .PHONY: ftplugin
-ftplugin:
-	mkdir -p ~/.vim/ftplugin
-	cp -Rf ftplugin/* ~/.vim/ftplugin
-
-~/.vim/autoload/plug.vim:
-	mkdir -p ~/.vim/autoload
-	cp -f autoload/plug.vim ~/.vim/autoload/plug.vim
+ftplugin: ftplugin/*.vim
+	mkdir -p $(HOME)/.vim/ftplugin
+	cp -f $^ $(HOME)/.vim/ftplugin
 
 .PHONY: plugins
-plugins:
-	vim +PlugInstall +qall
+plugins: autoload/plug.vim
+	mkdir -p $(HOME)/.vim/autoload
+	cp -f $^ $(HOME)/.vim/autoload
+	vim +PlugInstall +qa

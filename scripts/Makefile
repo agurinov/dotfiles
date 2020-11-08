@@ -1,6 +1,8 @@
 .PHONY: all
+all: files
 
-all: *.sh
+.PHONY: files
+files: *.sh
 	mkdir -p $(HOME)/bin
 	cp -f $^ $(HOME)/bin
 

@@ -1,5 +1,7 @@
 .PHONY: all
+all: files
 
-all: .editorconfig
+.PHONY: files
+files: .editorconfig
 	cp -f $^ $(HOME)
 

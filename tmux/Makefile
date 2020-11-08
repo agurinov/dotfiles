@@ -1,5 +1,7 @@
 .PHONY: all
+all: files
 
-all: .tmux.conf
+.PHONY: files
+files: .tmux.conf
 	cp -f $^ $(HOME)
 
