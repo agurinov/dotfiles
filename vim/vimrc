@@ -63,6 +63,7 @@ set wrap
 set linebreak
 set autoindent
 set smartindent
+set backspace=indent,eol,start
 
 " Display extra whitespaces
 set list
