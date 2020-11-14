@@ -3,7 +3,10 @@
 # from terminal
 
 alias ls='ls -lAhF'
+
 alias grep='grep -n --color'
+alias fgrep='fgrep -n --color'
+alias egrep='egrep -n --color'
 
 function rpmfind() {
 	wget http://pkg.corp.mail.ru/find.rpm.list.txt -O - \ 2>/dev/null | \
