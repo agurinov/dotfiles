@@ -4,9 +4,12 @@
 
 alias ls='ls -lAhF'
 
-alias grep='grep -n --color'
-alias fgrep='fgrep -n --color'
-alias egrep='egrep -n --color'
+# Grep aliases.
+# -n is for print line
+# -H is for print filename
+alias grep='grep -n -H --color'
+alias fgrep='fgrep -n -H --color'
+alias egrep='egrep -n -H --color'
 
 function rpmfind() {
 	wget http://pkg.corp.mail.ru/find.rpm.list.txt -O - \ 2>/dev/null | \
