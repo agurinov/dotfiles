@@ -1,8 +1,8 @@
 # Some checks to filter components to install on this environment.
-UNAME := $(shell uname -s)
-HAS_bash := $(shell command -v bash)
-HAS_tmux := $(shell command -v tmux)
-HAS_vim := $(shell command -v vim)
+UNAME := $(shell uname -s;)
+HAS_bash := $(shell command -v bash;)
+HAS_tmux := $(shell command -v tmux;)
+HAS_vim := $(shell command -v vim;)
 
 COMPONENTS := scripts editorconfig
 ifdef HAS_bash
