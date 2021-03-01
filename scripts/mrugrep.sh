@@ -9,13 +9,8 @@ SERVICE=$1
 # check checks that script can be properly run at this system.
 function check() {
 	# All required binaries exists.
-	required_bins='awk date'
-	for bin in $required_bins; do
-		if [[ -z `command -v $bin` ]]; then
-			echo "\`$bin\` required"
-			exit 1
-		fi
-	done
+	command -V awk
+	command -V date
 }
 check
 
