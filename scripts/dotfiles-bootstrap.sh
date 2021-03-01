@@ -15,8 +15,7 @@ GIT_WORK_TREE="${HOME}/dotfiles"
 # check checks that script can be properly run at this system.
 function check() {
 	# All required binaries exists.
-	required_bins='tar'
-	echo $required_bins | xargs -n1 command -V
+	command -V tar
 }
 check
 
