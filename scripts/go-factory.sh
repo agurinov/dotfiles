@@ -10,8 +10,9 @@ VERSION=$2
 # check checks that script can be properly run at this system.
 function check() {
 	# All required binaries exists.
-	required_bins='curl tar uname'
-	echo $required_bins | xargs -n1 command -V
+	command -V curl
+	command -V tar
+	command -V uname
 
 	# Script requires root permissions.
 	if [[ ! -w /usr/local ]]; then
