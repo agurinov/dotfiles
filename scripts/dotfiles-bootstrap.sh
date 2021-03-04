@@ -99,4 +99,6 @@ else
 fi
 
 # Install them on system.
-make -C --no-print-directory "${HOME}/dotfiles"
+make \
+	-C "${HOME}/dotfiles" \
+	--no-print-directory
