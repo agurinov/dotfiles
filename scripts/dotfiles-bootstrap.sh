@@ -12,7 +12,7 @@ TAR_URL='https://github.com/agurinov/dotfiles/archive/master.tar.gz'
 GIT_DIR="${HOME}/dotfiles/.git"
 GIT_WORK_TREE="${HOME}/dotfiles"
 
-# check checks that script can be properly run at this system.
+# Check that script can be properly run at this system.
 function check() {
 	# All required binaries exists.
 	command -V tar
