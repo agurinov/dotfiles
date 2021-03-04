@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -eu -o pipefail
 
-# Script does not require superuser rights.
-
 # Remote sources.
 GIT_URL='https://github.com/agurinov/dotfiles.git'
 ZIP_URL='https://github.com/agurinov/dotfiles/archive/master.zip'
@@ -102,4 +100,3 @@ fi
 
 # Install them on system.
 make -C "${HOME}/dotfiles"
-
