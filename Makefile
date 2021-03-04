@@ -23,4 +23,4 @@ endif
 all: $(COMPONENTS)
 
 $(COMPONENTS):
-	$(MAKE) -C $@
+	@$(MAKE) -C $@
