@@ -17,6 +17,7 @@ function check() {
 	command -V tar
 	command -V make
 	command -V curl git wget
+	echo 'Checked successfully!'
 }
 check
 
@@ -105,3 +106,4 @@ echo 'Installing...'
 make \
 	-C "${HOME}/dotfiles" \
 	--no-print-directory
+echo 'Installed successfully!'
