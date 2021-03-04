@@ -12,6 +12,7 @@ GIT_WORK_TREE="${HOME}/dotfiles"
 
 # Check that script can be properly run at this system.
 function check() {
+	echo 'Checking system...'
 	# All required binaries exists.
 	command -V tar
 	command -V make
@@ -99,6 +100,8 @@ else
 fi
 
 # Install them on system.
+echo
+echo 'Installing...'
 make \
 	-C "${HOME}/dotfiles" \
 	--no-print-directory
