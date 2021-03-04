@@ -16,6 +16,8 @@ GIT_WORK_TREE="${HOME}/dotfiles"
 function check() {
 	# All required binaries exists.
 	command -V tar
+	command -V make
+	command -V curl git wget
 }
 check
 
@@ -33,19 +35,22 @@ function dotfiles_install_git() {
 		git \
 			--git-dir=$GIT_DIR \
 			--work-tree=$GIT_WORK_TREE \
-			clean -fxd
+			clean -ffxd \
+			--quiet
 
 		git \
 			--git-dir=$GIT_DIR \
 			--work-tree=$GIT_WORK_TREE \
 			pull \
-			origin master
+			origin master \
+			--quiet
 	else
 		dotfiles_reset
 
 		git clone \
 			$GIT_URL \
-			$GIT_WORK_TREE
+			$GIT_WORK_TREE \
+			--quiet
 	fi
 }
 
