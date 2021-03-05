@@ -6,14 +6,15 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Redeclare prompt
-PROMPT_COMMAND='set_prompt'
-set_prompt () {
-	Reset='\[\e[0m\]'
-	RedBlink='\[\e[5;31m\]'
-	Green='\[\e[0;32m\]'
-	Blue='\[\e[0;34m\]'
-	Cyan='\[\e[0;36m\]'
+PROMPT_COMMAND='oneline_prompt'
 
+Reset='\[\e[0m\]'
+RedBlink='\[\e[5;31m\]'
+Green='\[\e[0;32m\]'
+Blue='\[\e[0;34m\]'
+Cyan='\[\e[0;36m\]'
+
+oneline_prompt () {
 	PS1="${Cyan}["
 
 	# Check current user is root.
