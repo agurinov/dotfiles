@@ -2,7 +2,7 @@
 	# View the current working tree status using the short format.
 	s = status -s
 
-	# View abbreviated SHA, description, and history graph of the latest 20 commits.
+	# View abbreviated SHA, description, and history graph of the latest 10 commits.
 	ll = log -10 --pretty=oneline --graph --abbrev-commit
 
 	# Show branches.
