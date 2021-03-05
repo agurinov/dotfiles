@@ -53,7 +53,7 @@ twoline_prompt () {
 	PS1+="${Reset} in ${Blue}${PWD}"
 
 	# Reset color and and write second line.
-	PS1+="${Reset}\n"
+	PS1+="${Reset}\n$ "
 }
 
 # docker, docker-compose, docker-machine
