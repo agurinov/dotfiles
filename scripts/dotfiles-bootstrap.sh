@@ -32,7 +32,7 @@ function dotfiles_reset() {
 function dotfiles_install_git() {
 	if [ -d "${HOME}/dotfiles/.git" ]; then
 		# git repo initialized, reset all changes and pull.
-		GIT_OPTS='--git-dir=$GIT_DIR --work-tree=$GIT_WORK_TREE'
+		GIT_OPTS="--git-dir=${GIT_DIR} --work-tree=${GIT_WORK_TREE}"
 
 		git $GIT_OPTS clean -ffxd --quiet
 		git $GIT_OPTS pull origin master --quiet
