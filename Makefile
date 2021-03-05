@@ -3,6 +3,7 @@ UNAME := $(shell uname -s;)
 HAS_bash := $(shell command -v bash;)
 HAS_tmux := $(shell command -v tmux;)
 HAS_vim := $(shell command -v vim;)
+HAS_git := $(shell command -v git;)
 
 COMPONENTS := scripts editorconfig
 ifdef HAS_bash
@@ -13,6 +14,9 @@ ifdef HAS_tmux
 endif
 ifdef HAS_vim
 	COMPONENTS := $(COMPONENTS) vim
+endif
+ifdef HAS_git
+	COMPONENTS := $(COMPONENTS) git
 endif
 ifeq ($(UNAME),Darwin)
 	COMPONENTS := $(COMPONENTS) macos
