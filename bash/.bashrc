@@ -6,12 +6,12 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Redeclare prompt
-PROMPT_COMMAND='twoline_prompt'
+PROMPT_COMMAND='oneline_prompt'
 
 Reset='\[\e[0m\]'
 RedBlink='\[\e[5;31m\]'
 Green='\[\e[0;32m\]'
-GreenBold='\[\e[1;32m\]'
+GreenBold='\[\e[0;32m\]'
 Blue='\[\e[0;34m\]'
 Cyan='\[\e[0;36m\]'
 
