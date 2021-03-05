@@ -3,7 +3,7 @@
 # from terminal
 
 alias ls='ls -lAhF'
-alias git='g'
+alias g='git'
 
 # Grep aliases.
 # -n is for print line
