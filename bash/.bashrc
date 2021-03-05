@@ -11,6 +11,7 @@ PROMPT_COMMAND='twoline_prompt'
 Reset='\[\e[0m\]'
 RedBlink='\[\e[5;31m\]'
 Green='\[\e[0;32m\]'
+GreenBold='\[\e[1;32m\]'
 Blue='\[\e[0;34m\]'
 Cyan='\[\e[0;36m\]'
 
@@ -42,7 +43,7 @@ twoline_prompt () {
 	if [[ $EUID == 0 ]]; then
 		PS1+="${RedBlink}"
 	else
-		PS1+="${Green}"
+		PS1+="${GreenBold}"
 	fi
 	PS1+='\u' # write username
 
