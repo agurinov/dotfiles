@@ -6,7 +6,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Redeclare prompt
-PROMPT_COMMAND='oneline_prompt'
+PROMPT_COMMAND='twoline_prompt'
 
 Reset='\[\e[0m\]'
 RedBlink='\[\e[5;31m\]'
@@ -33,6 +33,27 @@ oneline_prompt () {
 
 	# Write prompt marker and reset.
 	PS1+="${Cyan}] \$ ${Reset}"
+}
+
+twoline_prompt () {
+	PS1=''
+
+	# Check current user is root.
+	if [[ $EUID == 0 ]]; then
+		PS1+="${RedBlink}"
+	else
+		PS1+="${Green}"
+	fi
+	PS1+='\u' # write username
+
+	# Write hostname
+	PS1+="${Reset} at ${Cyan}@\h:"
+
+	# Write current working dir.
+	PS1+="${Reset} in ${Blue}${PWD}"
+
+	# Reset color and and write second line.
+	PS1+="${Reset}\n"
 }
 
 # docker, docker-compose, docker-machine
