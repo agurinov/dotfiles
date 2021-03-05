@@ -5,6 +5,6 @@ all: files apply
 files: .bashrc .bash_profile .bash_aliases
 	cp -f $^ $(HOME)
 	
-.PHONY: files
-files: .bash_profile
+.PHONY: apply
+apply: .bash_profile
 	source $^
