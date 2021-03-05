@@ -5,6 +5,6 @@ curl https://raw.githubusercontent.com/agurinov/dotfiles/master/scripts/dotfiles
 ```
 
 ```bash
-# This script is now installed to yout $HOME dir
+# This script is now installed to your $HOME dir. Use it to update.
 dotfiles-bootstrap.sh
 ```
