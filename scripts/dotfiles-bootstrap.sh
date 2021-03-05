@@ -31,26 +31,15 @@ function dotfiles_reset() {
 # dotfiles_install_git installs source code via git.
 function dotfiles_install_git() {
 	if [ -d "${HOME}/dotfiles/.git" ]; then
-		# git repo initialized, reset all changes.
-		git \
-			--git-dir=$GIT_DIR \
-			--work-tree=$GIT_WORK_TREE \
-			clean -ffxd \
-			--quiet
+		# git repo initialized, reset all changes and pull.
+		GIT_OPTS='--git-dir=$GIT_DIR --work-tree=$GIT_WORK_TREE --quiet'
 
-		git \
-			--git-dir=$GIT_DIR \
-			--work-tree=$GIT_WORK_TREE \
-			pull \
-			origin master \
-			--quiet
+		git $GIT_OPTS clean -ffxd
+		git $GIT_OPTS pull origin master
 	else
 		dotfiles_reset
 
-		git clone \
-			$GIT_URL \
-			$GIT_WORK_TREE \
-			--quiet
+		git clone $GIT_URL $GIT_WORK_TREE --quiet
 	fi
 }
 
