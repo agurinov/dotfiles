@@ -7,4 +7,4 @@ files: .bashrc .bash_profile .bash_aliases
 	
 .PHONY: apply
 apply: $(HOME)/.bash_profile
-	source $^
+	. $^
