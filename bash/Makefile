@@ -6,5 +6,5 @@ files: .bashrc .bash_profile .bash_aliases
 	cp -f $^ $(HOME)
 	
 .PHONY: apply
-apply: .bash_profile
+apply: $(HOME)/.bash_profile
 	source $^
