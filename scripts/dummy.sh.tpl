@@ -5,7 +5,8 @@ set -eu -o pipefail
 function check() {
 	echo 'Checking system...'
 	# All required binaries exists.
-	# command -V tar
+	command -V gdb
+	command -V foo
 	echo 'Checked successfully!'
 }
 check
@@ -14,7 +15,7 @@ TMP_DIR=`mktemp -d`
 function cleanup() {
 	echo
 	echo 'Cleaning...'
-	echo $TMP_DIR
+	rm -rf $TMP_DIR
 	echo 'Cleaned successfully!'
 }
 trap cleanup EXIT
@@ -22,9 +23,4 @@ trap cleanup EXIT
 echo
 echo 'Working...'
 echo 'I am working'
-echo $TMP_DIR
-if true; then
-	echo 'core!'
-	exit 1
-fi
 echo 'Worked successfully!'
