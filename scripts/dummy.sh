@@ -23,4 +23,8 @@ echo
 echo 'Working...'
 echo 'I am working'
 echo $TMP_DIR
+if true; then
+	echo 'core!'
+	exit 1
+fi
 echo 'Worked successfully!'
