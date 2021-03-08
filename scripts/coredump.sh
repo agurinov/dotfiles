@@ -42,6 +42,8 @@ gdb -batch ${BIN_PATH} -c ${CORE_PATH} -ex 'info shared' -ex 'quit' \
 
 # TODO: Collect installed rpm state.
 
+echo 'Files to be collected:'
+echo $TAR_FILES
 tar -czh -f ${TAR_NAME} -T ${TAR_FILES}
 
 echo 'Collected successfully!'
