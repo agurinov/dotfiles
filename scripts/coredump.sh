@@ -38,7 +38,7 @@ echo $CORE_PATH >> ${TAR_FILES}
 # Collect dynamic libraries from gdb information.
 gdb -batch ${BIN_PATH} -c ${CORE_PATH} -ex 'info shared' -ex 'quit' \
 	2> /dev/null |
-	awk '$NF ~ /^\// {print $NF}' > ${TAR_FILES}
+	awk '$NF ~ /^\// {print $NF}' >> ${TAR_FILES}
 
 # TODO: Collect installed rpm state.
 
