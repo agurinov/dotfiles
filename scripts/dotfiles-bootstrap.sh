@@ -53,8 +53,7 @@ function dotfiles_install_curl() {
 		--output ${GIT_WORK_TREE}/dotfiles.tar.gz \
 		--fail # return nonzero exit code if 404 or any error from server.
 
-	tar -xv \
-		--strip 1 \
+	tar -x --strip 1 \
 		-f ${GIT_WORK_TREE}/dotfiles.tar.gz \
 		-C ${GIT_WORK_TREE}
 
@@ -69,8 +68,7 @@ function dotfiles_install_wget() {
 		--quiet \
 		-O ${GIT_WORK_TREE}/dotfiles.tar.gz
 
-	tar -xv \
-		--strip 1 \
+	tar -x --strip 1 \
 		-f ${GIT_WORK_TREE}/dotfiles.tar.gz \
 		-C ${GIT_WORK_TREE}
 
