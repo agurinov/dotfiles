@@ -8,9 +8,28 @@ function check() {
 	command -V gdb
 	command -V awk
 	command -V tar
+	command -V getopts
 	echo 'Checked successfully!'
 }
 check
+
+function args() {
+	while getopts "fr" opt
+	do
+		case $opt in
+			f )
+				echo 'Collected core will be written to file.'
+				TO_FILE=true
+				;;
+
+			r )
+				echo 'RPM info will be included.'
+				WITH_RPM=true
+				;;
+		esac
+	done
+}
+args
 
 TMP_DIR=`mktemp -d`
 function cleanup() {
@@ -26,10 +45,8 @@ echo 'Collecting core...'
 
 BIN_PATH=$1
 CORE_PATH=$2
+TAR_NAME='-'
 
-COMMAND=`basename $BIN_PATH`
-DATETIME=`date +%Y%m%d%H%M`
-TAR_NAME="${COMMAND}-core-${DATETIME}-${HOSTNAME%%.*}.tar.gz"
 
 TAR_FILES=${TMP_DIR}/tar_files
 echo $BIN_PATH >> ${TAR_FILES}
@@ -44,6 +61,12 @@ gdb -batch ${BIN_PATH} -c ${CORE_PATH} -ex 'info shared' -ex 'quit' \
 
 echo 'Files to be collected:'
 cat $TAR_FILES
+
+if ! [ -z $TO_FILE ]; then
+	COMMAND=`basename $BIN_PATH`
+	DATETIME=`date +%Y%m%d%H%M`
+	TAR_NAME="${COMMAND}-core-${DATETIME}-${HOSTNAME%%.*}.tar.gz"
+fi
 tar -czh -f ${TAR_NAME} -T ${TAR_FILES}
 
 echo 'Collected successfully!'
