@@ -4,9 +4,6 @@ set -eu -o pipefail
 # Check that script can be properly run at this system.
 function check() {
 	echo 'Checking system...'
-	# All required binaries exists.
-	command -V gdb
-	command -V foo
 	echo 'Checked successfully!'
 }
 check
@@ -22,5 +19,5 @@ trap cleanup EXIT
 
 echo
 echo 'Working...'
-echo 'I am working'
+sleep 60
 echo 'Worked successfully!'
