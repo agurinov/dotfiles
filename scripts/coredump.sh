@@ -14,6 +14,9 @@ function check() {
 check
 
 function args() {
+	TO_FILE=
+	WITH_RPM=
+
 	while getopts "fr" opt
 	do
 		case $opt in
@@ -46,7 +49,6 @@ echo 'Collecting core...'
 BIN_PATH=$1
 CORE_PATH=$2
 TAR_NAME='-'
-
 
 TAR_FILES=${TMP_DIR}/tar_files
 echo $BIN_PATH >> ${TAR_FILES}
