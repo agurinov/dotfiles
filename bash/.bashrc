@@ -68,5 +68,6 @@ fi
 # Use vim as default editor for all.
 export VISUAL=vim
 export EDITOR="$VISUAL"
+export HISTCONTROL=ignoredups
 
 PATH="$HOME/bin:$PATH"
