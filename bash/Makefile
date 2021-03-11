@@ -1,10 +1,6 @@
 .PHONY: all
-all: files apply
+all: files
 
 .PHONY: files
 files: .bashrc .bash_profile .bash_aliases
 	cp -f $^ $(HOME)
-	
-.PHONY: apply
-apply: $(HOME)/.bash_profile
-	. $^
