@@ -9,7 +9,7 @@
 	ll = log -10 --pretty=oneline --graph --abbrev-commit
 
 	# Show branches.
-	branches = branch -vv
+	br = branch -vv
 
 	# Show the user email for the current repository.
 	whoami = config user.email
