@@ -7,6 +7,7 @@
 
 	# View abbreviated SHA, description, and history graph of the latest 10 commits.
 	ll = log -10 --pretty=oneline --graph --abbrev-commit
+	grep = log -10 --pretty=oneline --graph --abbrev-commit --grep
 
 	# Show branches.
 	br = branch -vv
