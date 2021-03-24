@@ -1,5 +1,5 @@
 .PHONY: all
-all: files ftplugin plugins
+all: files ftplugin plugins minisnip
 
 .PHONY: files
 files: vimrc
@@ -10,6 +10,11 @@ files: vimrc
 ftplugin: ftplugin/*.vim
 	mkdir -p $(HOME)/.vim/ftplugin
 	cp -f $^ $(HOME)/.vim/ftplugin
+
+.PHONY: minisnip
+minisnip: minisnip/*
+	mkdir -p $(HOME)/.vim/minisnip
+	cp -f $^ $(HOME)/.vim/minisnip
 
 .PHONY: plugins
 plugins: autoload/plug.vim
