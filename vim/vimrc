@@ -25,6 +25,10 @@ nnoremap <C-l>N :ALEPrevious<CR>
 nnoremap <C-l>l :ALELint<CR>
 nnoremap <C-l>f :ALEFix<CR>
 
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_max_line_indicator = "line"
 
