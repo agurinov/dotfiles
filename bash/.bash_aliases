@@ -4,6 +4,7 @@
 
 alias ls='ls -lAhF'
 alias g='git'
+alias ff='find . -type f -name'
 
 # Grep aliases.
 # -n is for print line
