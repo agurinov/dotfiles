@@ -7,7 +7,7 @@ let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
-nmap <C-\> :NERDTreeToggle<CR>
+nnoremap <C-\> :NERDTreeToggle<CR>
 
 Plug 'morhetz/gruvbox'
 Plug 'rodjek/vim-puppet'
