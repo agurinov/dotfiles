@@ -28,9 +28,6 @@ nmap <C-l>f :ALEFix<CR>
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_max_line_indicator = "line"
 
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger="<tab>"
-
 call plug#end()
 
 " Configuration for vim.
