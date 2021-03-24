@@ -12,7 +12,7 @@ ftplugin: ftplugin/*.vim
 	cp -f $^ $(HOME)/.vim/ftplugin
 
 .PHONY: snippets
-ftplugin: snippets/*.snip
+snippets: snippets/*.snip
 	mkdir -p $(HOME)/.vim/snippets
 	cp -f $^ $(HOME)/.vim/snippets
 
