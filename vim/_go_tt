@@ -1,0 +1,25 @@
+// +build {{++}}
+
+package {{++}}_test
+
+func Test{{++}}(t *testing.T) {
+        t.Parallel()
+
+        cases := map[string]struct {
+                {{++}}
+        }{
+                "{{++}}": {
+                        {{++}}
+                },
+        }
+
+        for name, tc := range cases {
+                name := name
+                tc := tc
+                t.Run(name, func(t *testing.T) {
+                        t.Parallel()
+
+                        {{--}}
+                })
+        }
+}
