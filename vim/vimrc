@@ -20,10 +20,7 @@ let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
-map <C-ln> :ALENext<CR>
-map <C-lN> :ALEPrevious<CR>
-map <C-ll> :ALELint<CR>
-map <C-lf> :ALEFix<CR>
+map <C-l> :ALENext<CR>
 
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_max_line_indicator = "line"
