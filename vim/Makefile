@@ -15,4 +15,4 @@ ftplugin: ftplugin/*.vim
 plugins: autoload/plug.vim
 	mkdir -p $(HOME)/.vim/autoload
 	cp -f $^ $(HOME)/.vim/autoload
-	vim +PlugUpgrade +PlugInstall +qa
+	vim +PlugUpgrade +PlugInstall +qa!
