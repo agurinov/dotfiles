@@ -28,7 +28,7 @@ nnoremap <C-l>f :ALEFix<CR>
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
-let g:snipMate.snippet_version = 1
+let g:snipMate = { 'snippet_version' : 1 }
 
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_max_line_indicator = "line"
