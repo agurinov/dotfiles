@@ -6,7 +6,7 @@ alias ls='ls -lAhF'
 alias g='git'
 
 alias ff='find . -type f -name'
-alias clearold='find . -maxdepth 1 -type f -atime +10 -print -delete'
+alias clearold='find . -maxdepth 1 -type f -mtime +10 -print -delete'
 
 # Grep aliases.
 # -n is for print line
