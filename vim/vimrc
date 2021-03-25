@@ -27,29 +27,12 @@ nnoremap <C-l>l :ALELint<CR>
 nnoremap <C-l>f :ALEFix<CR>
 
 Plug 'editorconfig/editorconfig-vim'
-let g:EditorConfig_max_line_indicator = "line"
+let g:EditorConfig_max_line_indicator = 'line'
 
 call plug#end()
 
-" Configuration for vim.
-set encoding=utf-8
-
-set laststatus=2
-set tabstop=4
-
 filetype plugin indent on
 syntax on
-
-" Coloscheme settings
-set t_Co=256
-silent! colorscheme gruvbox
-set background=dark
-
-" Line numbers and positioning.
-set number
-set scrolloff=5
-set ruler
-set numberwidth=5
 
 " Disable arrow buttons
 nnoremap <up> <nop>
@@ -65,6 +48,16 @@ vnoremap <down> <nop>
 vnoremap <left> <nop>
 vnoremap <right> <nop>
 
+set encoding=utf-8
+set laststatus=2
+set tabstop=4
+set t_Co=256
+silent! colorscheme gruvbox
+set background=dark
+set number
+set scrolloff=5
+set ruler
+set numberwidth=5
 set nocompatible
 set modifiable
 set wrap
@@ -72,23 +65,16 @@ set linebreak
 set autoindent
 set smartindent
 set backspace=indent,eol,start
-
-" Display extra whitespaces
 set list
 if has("patch-7.4.710")
 	set listchars=tab:»\ ,space:·,trail:·,nbsp:·,eol:¬
 else
 	set listchars=tab:»\ ,trail:·,nbsp:·,eol:¬
 endif
-
 set showcmd
-
-" Search area
 set incsearch
 set hlsearch
 set ignorecase
-
 set nobackup
 set noswapfile
-
 set hidden
