@@ -1,7 +1,3 @@
-// +build {{++}}
-
-package {{++}}_test
-
 func Test{{++}}(t *testing.T) {
         t.Parallel()
 
