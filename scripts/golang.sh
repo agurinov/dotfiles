@@ -76,9 +76,12 @@ case "$1" in
 		go_switch
 		;;
 
+	'linters' )
+		echo 'Coming soon...'
+		;;
+
 	* )
 		echo 'Unknown command. Use `install` or `switch`'
 		exit 1
 		;;
 esac
-
