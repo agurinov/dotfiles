@@ -27,6 +27,4 @@ endif
 all: $(COMPONENTS)
 
 $(COMPONENTS):
-	@echo
 	@$(MAKE) -C $@
-	@echo
