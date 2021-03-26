@@ -54,10 +54,9 @@ set tabstop=4
 set t_Co=256
 silent! colorscheme gruvbox
 set background=dark
-set number
+set number numberwidth=5
 set scrolloff=5
 set ruler
-set numberwidth=5
 set nocompatible
 set modifiable
 set wrap
