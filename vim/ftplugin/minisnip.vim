@@ -1,2 +1,2 @@
-silent! execute 'iunmap <buffer> ' . g:minisnip_trigger
-silent! execute 'sunmap <buffer> ' . g:minisnip_trigger
+execute 'inoremap <buffer> ' . g:minisnip_trigger . '<nop>'
+execute 'snoremap <buffer> ' . g:minisnip_trigger . '<nop>'
