@@ -3,11 +3,12 @@ all: tree files ftplugin plugins minisnip
 
 .PHONY: tree
 tree:
-	rm -rf $(HOME)/.vim
-	mkdir $(HOME)/.vim
-	mkdir $(HOME)/.vim/ftplugin
-	mkdir $(HOME)/.vim/minisnip
-	mkdir $(HOME)/.vim/autoload
+	mkdir -p $(HOME)/.vim
+	mkdir -p $(HOME)/.vim/ftplugin
+	mkdir -p $(HOME)/.vim/minisnip
+	mkdir -p $(HOME)/.vim/autoload
+	rm -rf $(HOME)/.vim/minisnip/*
+	rm -rf $(HOME)/.vim/autoload/*
 
 .PHONY: files
 files: vimrc
