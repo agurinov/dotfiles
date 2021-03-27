@@ -48,6 +48,10 @@ vnoremap <down> <nop>
 vnoremap <left> <nop>
 vnoremap <right> <nop>
 
+" Disable <Esc> for exit. Use <c-c>
+inoremap <Esc> <nop>
+vnoremap <Esc> <nop>
+
 set encoding=utf-8
 set laststatus=2
 set tabstop=4
