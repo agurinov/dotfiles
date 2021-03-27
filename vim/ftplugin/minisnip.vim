@@ -1,2 +1,2 @@
-execute 'iunmap ' . g:minisnip_trigger
-execute 'sunmap ' . g:minisnip_trigger
+execute 'iunmap <buffer> ' . g:minisnip_trigger
+execute 'sunmap <buffer> ' . g:minisnip_trigger
