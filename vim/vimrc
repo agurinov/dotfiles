@@ -81,3 +81,5 @@ set ignorecase
 set nobackup
 set noswapfile
 set hidden
+set wildmenu
+set path+=**
