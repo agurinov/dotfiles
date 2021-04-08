@@ -1,13 +1,13 @@
 " Plugins installed via https://github.com/junegunn/vim-plug
 silent! call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeFind' }
 let g:NERDTreeShowHidden=1
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
-nnoremap <C-\> :NERDTreeToggle<CR>
+nnoremap <C-\> :NERDTreeFind<CR>
 
 Plug 'morhetz/gruvbox'
 Plug 'rodjek/vim-puppet'
