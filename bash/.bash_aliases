@@ -5,8 +5,8 @@
 alias ls='ls -lAhF'
 alias g='git'
 
-alias ff='find . -type f -name'
 alias clearold='find . -maxdepth 1 -type f -mtime +10 -print -delete'
+alias fname='find . -type f -name'
 
 # Grep aliases.
 # -n is for print line
@@ -18,6 +18,5 @@ alias egrep='egrep -n -H --color'
 function rpmfind() {
 	wget http://pkg.corp.mail.ru/find.rpm.list.txt -O - 2>/dev/null | \
 	awk '{ print "http://pkg.corp.mail.ru/," $0 }' | \
-	fgrep -h $@
+	\fgrep --color $@
 }
-
