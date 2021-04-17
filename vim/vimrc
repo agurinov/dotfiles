@@ -40,7 +40,7 @@ call plug#end()
 filetype plugin indent on
 syntax on
 
-" Disable arrow buttons
+" Disable arrow buttons file settings {{{
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
@@ -53,10 +53,12 @@ vnoremap <up> <nop>
 vnoremap <down> <nop>
 vnoremap <left> <nop>
 vnoremap <right> <nop>
+" }}}
 
-" Disable <Esc> for exit. Use <c-c>
+" Disable <Esc> for exit. Use <c-c> {{{
 " inoremap <Esc> <nop>
 " vnoremap <Esc> <nop>
+" }}}
 
 set t_Co=256
 silent! colorscheme gruvbox
@@ -74,6 +76,7 @@ set smartindent
 set tabstop=4
 set linebreak
 
+" Encoding and hidden char {{{
 set encoding=utf-8
 set list
 set listchars=tab:»\ ,trail:·,nbsp:·,eol:¬
@@ -81,7 +84,9 @@ if has("patch-7.4.710")
 	set listchars=tab:»\ ,trail:·,nbsp:·,eol:¬,space:·
 endif
 set backspace=indent,eol,start
+" }}}
 
+" Unsorted options {{{
 set nocompatible
 set modifiable
 set wrap
@@ -93,3 +98,4 @@ set noswapfile
 set hidden
 set wildmenu
 set path+=**
+" }}}
