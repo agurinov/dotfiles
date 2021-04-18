@@ -1,8 +1,14 @@
 scriptencoding=utf-8
 
-" Plugins installed via https://github.com/junegunn/vim-plug
+" https://github.com/junegunn/vim-plug
 silent! call plug#begin('~/.vim/plugged')
 
+Plug 'morhetz/gruvbox'
+Plug 'rodjek/vim-puppet'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'joereynolds/vim-minisnip'
+
+" scrooloose/nerdtree {{{
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 let g:NERDTreeShowHidden=1
 let g:NERDTreeQuitOnOpen = 1
@@ -10,16 +16,34 @@ let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
 nnoremap <C-\> :NERDTreeToggle<CR>
+" }}}
 
-Plug 'morhetz/gruvbox'
+" vim-airline/vim-airline {{{
 Plug 'vim-airline/vim-airline'
 let g:airline_theme='gruvbox'
+let g:airline_extensions = ['tabline']
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_splits = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#show_tab_count = 0
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline#extensions#tabline#tabtitle_formatter = 'EmptyTabTitleFormatter'
+function EmptyTabTitleFormatter(n)
+	return ' '
+endfunction
+" }}}
 
-Plug 'rodjek/vim-puppet'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'joereynolds/vim-minisnip'
-
+" dense-analysis/ale {{{
 Plug 'dense-analysis/ale'
 let g:ale_linters_explicit = 1
 let g:ale_lint_on_text_changed = 'never'
@@ -31,6 +55,7 @@ nnoremap <C-l>n :ALENext<CR>
 nnoremap <C-l>N :ALEPrevious<CR>
 nnoremap <C-l>l :ALELint<CR>
 nnoremap <C-l>f :ALEFix<CR>
+" }}}
 
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_max_line_indicator = 'line'
@@ -87,6 +112,7 @@ set backspace=indent,eol,start
 " }}}
 
 " Unsorted options {{{
+set foldmethod=manual
 set nocompatible
 set modifiable
 set wrap
