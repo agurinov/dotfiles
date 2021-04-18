@@ -57,8 +57,10 @@ nnoremap <C-l>l :ALELint<CR>
 nnoremap <C-l>f :ALEFix<CR>
 " }}}
 
+" editorconfig/editorconfig-vim {{{
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_max_line_indicator = 'line'
+" }}}
 
 call plug#end()
 
@@ -78,11 +80,6 @@ vnoremap <up> <nop>
 vnoremap <down> <nop>
 vnoremap <left> <nop>
 vnoremap <right> <nop>
-" }}}
-
-" Disable <Esc> for exit. Use <c-c> {{{
-" inoremap <Esc> <nop>
-" vnoremap <Esc> <nop>
 " }}}
 
 set t_Co=256
