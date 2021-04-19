@@ -9,7 +9,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'joereynolds/vim-minisnip'
 
 " scrooloose/nerdtree {{{
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 let g:NERDTreeShowHidden=1
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeAutoDeleteBuffer = 1
@@ -67,7 +67,7 @@ call plug#end()
 filetype plugin indent on
 syntax on
 
-" Disable arrow buttons file settings {{{
+" Disable arrow buttons {{{
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
@@ -82,12 +82,14 @@ vnoremap <left> <nop>
 vnoremap <right> <nop>
 " }}}
 
+" Color schemas and status lines {{{
 set t_Co=256
 silent! colorscheme gruvbox
 set background=dark
 set laststatus=2
 set ruler
 set showcmd
+" }}}
 
 set number
 set numberwidth=5
@@ -98,7 +100,7 @@ set smartindent
 set tabstop=4
 set linebreak
 
-" Encoding and hidden char {{{
+" Encoding and hidden chars {{{
 set encoding=utf-8
 set list
 set listchars=tab:»\ ,trail:·,nbsp:·,eol:¬
