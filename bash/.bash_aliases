@@ -5,6 +5,9 @@
 alias ls='ls -lAhF'
 alias g='git'
 
+alias du='du -h'
+alias df='df =h'
+
 alias clearold='find . -maxdepth 1 -type f -mtime +10 -print -delete'
 alias fname='find . -type f -name'
 
