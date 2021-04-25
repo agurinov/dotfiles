@@ -118,6 +118,7 @@ set wrap
 set incsearch
 set hlsearch
 set ignorecase
+set smartcase
 set nobackup
 set noswapfile
 set hidden
