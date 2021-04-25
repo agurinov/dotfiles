@@ -2,7 +2,7 @@
 # NOTE: this file is source'd so all functions will also be available to call
 # from terminal
 
-alias ls='ls -lAhF'
+alias ll='ls -lAhF --color=auto'
 alias g='git'
 
 alias du='du -h'
