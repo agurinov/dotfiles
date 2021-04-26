@@ -20,6 +20,6 @@ alias egrep='egrep -n -H --color'
 
 function rpmfind() {
 	wget http://pkg.corp.mail.ru/find.rpm.list.txt -O - 2>/dev/null | \
-	awk '{ print "http://pkg.corp.mail.ru/," $0 }' | \
+	awk '{ print "http://pkg.corp.mail.ru/" $0 }' | \
 	\fgrep --color $@
 }
