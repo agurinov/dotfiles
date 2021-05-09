@@ -1,17 +1,13 @@
-# user defined aliases.
-# NOTE: this file is source'd so all functions will also be available to call
-# from terminal
-
-alias ll='ls -lAhF --color=auto'
+alias ll='ls -lAhF'
 alias g='git'
 
 alias du='du -h'
-alias df='df =h'
+alias df='df -h'
 
-alias clearold='find . -maxdepth 1 -type f -mtime +10 -print -delete'
+# https://ru.wikipedia.org/wiki/Find#Список_ключей
+alias fclear='find . -maxdepth 1 -type f -mtime +10 -print -delete'
 alias fname='find . -type f -name'
 
-# Grep aliases.
 # -n is for print line
 # -H is for print filename
 alias grep='grep -n -H --color'
@@ -19,7 +15,9 @@ alias fgrep='fgrep -n -H --color'
 alias egrep='egrep -n -H --color'
 
 function rpmfind() {
-	wget http://pkg.corp.mail.ru/find.rpm.list.txt -O - 2>/dev/null | \
-	awk '{ print "http://pkg.corp.mail.ru/" $0 }' | \
+	RPM_HOST='http://pkg.corp.mail.ru'
+
+	wget "${RPM_HOST}/find.rpm.list.txt" -O - 2>/dev/null | \
+	awk -v rpm_host="${RPM_HOST}" '{ print rpm_host "/" $0 }' | \
 	\fgrep --color $@
 }
