@@ -4,15 +4,15 @@ alias g='git'
 alias du='du -h'
 alias df='df -h'
 
-# https://ru.wikipedia.org/wiki/Find#Список_ключей
-alias fclear='find . -maxdepth 1 -type f -mtime +10 -print -delete'
-alias fname='find . -type f -name'
-
 # -n is for print line
 # -H is for print filename
 alias grep='grep -n -H --color'
-alias fgrep='fgrep -n -H --color'
-alias egrep='egrep -n -H --color'
+alias fgrep='grep -F -n -H --color'
+alias egrep='grep -E -n -H --color'
+
+# https://ru.wikipedia.org/wiki/Find#Список_ключей
+alias fclear='find . -maxdepth 1 -type f -mtime +10 -print -delete'
+alias fname='find . -type f -name'
 
 function rpmfind() {
 	RPM_HOST='http://pkg.corp.mail.ru'
