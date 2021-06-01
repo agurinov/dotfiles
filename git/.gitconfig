@@ -16,6 +16,8 @@
 	whoami = config user.email
 	
 	co = checkout
+	
+	pr = pull --rebase
 
 [branch]
 	# Show most recently changed branches first.
