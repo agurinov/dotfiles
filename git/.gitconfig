@@ -9,15 +9,12 @@
 	ll = log -10 --pretty=oneline --graph --abbrev-commit
 	lgrep = log -10 --pretty=oneline --graph --abbrev-commit --grep
 
-	# Show branches.
-	br = branch -vv
-
 	# Show the user email for the current repository.
 	whoami = config user.email
 	
 	co = checkout
-	
 	pr = pull --rebase
+	pwd = branch -vv
 
 [branch]
 	# Show most recently changed branches first.
