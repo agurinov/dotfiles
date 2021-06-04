@@ -9,6 +9,9 @@ alias df='df -h'
 alias grep='grep -n -H --color'
 alias fgrep='grep -F'
 alias egrep='grep -E'
+function rgrep() {
+	fgrep -R $1 ${2:-.}
+}
 
 # https://ru.wikipedia.org/wiki/Find#Список_ключей
 alias fclear='find . -maxdepth 1 -type f -mtime +10 -print -delete'
