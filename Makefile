@@ -5,34 +5,40 @@ HAS_tmux := $(shell command -v tmux;)
 HAS_vim := $(shell command -v vim;)
 HAS_git := $(shell command -v git;)
 HAS_ctags := $(shell command -v ctags;)
+HAS_golang := $(shell command -v go;)
 
-COMPONENTS := scripts editorconfig
+# Two kinds of components available: auto and manual
+# auto:   installed via default target `make`
+# manual: installed via manual command `make ${MODULE}`
+AUTO := scripts editorconfig
+MANUAL :=
 
-# Components based on the existence of a daemon.
 ifdef HAS_bash
-	COMPONENTS := $(COMPONENTS) bash
+	AUTO := $(AUTO) bash
 endif
 ifdef HAS_tmux
-	COMPONENTS := $(COMPONENTS) tmux
+	AUTO := $(AUTO) tmux
 endif
 ifdef HAS_vim
-	COMPONENTS := $(COMPONENTS) vim
+	AUTO := $(AUTO) vim
 endif
 ifdef HAS_git
-	COMPONENTS := $(COMPONENTS) git
+	AUTO := $(AUTO) git
 endif
 ifdef HAS_ctags
-	COMPONENTS := $(COMPONENTS) ctags
+	AUTO := $(AUTO) ctags
 endif
-
-# Components based on OS.
 ifeq ($(UNAME),Darwin)
-	COMPONENTS := $(COMPONENTS) macos
+	AUTO := $(AUTO) macos
 endif
 
-.PHONY: all $(COMPONENTS)
+ifdef HAS_golang
+	MANUAL := $(MANUAL) golang
+endif
 
-all: $(COMPONENTS)
+.PHONY: all $(AUTO) $(MANUAL)
 
-$(COMPONENTS):
+all: $(AUTO)
+
+$(AUTO) $(MANUAL):
 	@$(MAKE) -C $@
