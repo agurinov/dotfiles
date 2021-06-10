@@ -4,14 +4,14 @@ alias g='git'
 alias du='du -h'
 alias df='df -h'
 
-# -I -- process a binary file as if it did not contain matching data; 
-# -n -- prefix each line of output with the 1-based line number within its input file
-# -H -- print the file name for each match
+# -I -- process a binary file as if it did not contain matching data;
+# -n -- prefix each line of output with the 1-based line number within its input file;
+# -H -- print the file name for each match;
 alias grep='grep -I -n -H --color'
 alias fgrep='grep -F'
 alias egrep='grep -E'
 function rgrep() {
-	fgrep -R $1 ${2:-.}
+	fgrep -R "'$1'" ${2:-.}
 }
 
 # https://ru.wikipedia.org/wiki/Find#Список_ключей
