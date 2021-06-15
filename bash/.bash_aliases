@@ -13,6 +13,39 @@ alias egrep='grep -E'
 function rgrep() {
 	fgrep -R "'$1'" ${2:-.}
 }
+tgrep() {
+	perl -le '$g = shift @ARGV;
+		$g =~ /(\d\d):(\d\d)/ or die "bad grep\n";
+		$gh = $1;
+		$gm = $2;
+		for my $f (@ARGV) {
+			$h = `head -n1 $f`;
+			$h =~ /[^\d](\d\d):(\d\d):(\d\d)[^\d]/ or next;
+
+			$hh = $1;
+			$hm = $2;
+
+			$t = `tail -n2 $f | head -n1`;
+			$t =~ /[^\d](\d\d):(\d\d):(\d\d)[^\d]/ or next;
+			$th = $1;
+			$tm = $2;
+			if ($hh > $th and $hh == 23 and $gh != 23) {
+				$hh = 0;
+				$hm = 0;
+			}
+			if ($hh < $gh and $gh < $th) {
+				print $f;
+			} elsif ($hh == $gh) {
+				if ($hm <= $gm) {
+					print $f;
+				}
+			} elsif ($gh == $th) {
+				if ($gm <= $tm) {
+					print $f;
+				}
+			}
+		}' "$@" 2>/dev/null
+}
 
 # https://ru.wikipedia.org/wiki/Find#Список_ключей
 alias fclear='find . -maxdepth 1 -type f -mtime +10 -print -delete'
