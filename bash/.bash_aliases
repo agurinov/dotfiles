@@ -16,33 +16,25 @@ function rgrep() {
 tgrep() {
 	perl -le '$g = shift @ARGV;
 		$g =~ /(\d\d):(\d\d)/ or die "bad grep\n";
-		$gh = $1;
-		$gm = $2;
+		$gh = $1; $gm = $2;
+
 		for my $f (@ARGV) {
 			$h = `head -n1 $f`;
 			$h =~ /[^\d](\d\d):(\d\d):(\d\d)[^\d]/ or next;
-
-			$hh = $1;
-			$hm = $2;
+			$hh = $1; $hm = $2;
 
 			$t = `tail -n2 $f | head -n1`;
 			$t =~ /[^\d](\d\d):(\d\d):(\d\d)[^\d]/ or next;
-			$th = $1;
-			$tm = $2;
-			if ($hh > $th and $hh == 23 and $gh != 23) {
-				$hh = 0;
-				$hm = 0;
-			}
+			$th = $1; $tm = $2;
+
+			if ($hh > $th and $hh == 23 and $gh != 23) { $hh = 0; $hm = 0; }
+
 			if ($hh < $gh and $gh < $th) {
 				print $f;
 			} elsif ($hh == $gh) {
-				if ($hm <= $gm) {
-					print $f;
-				}
+				if ($hm <= $gm) { print $f; }
 			} elsif ($gh == $th) {
-				if ($gm <= $tm) {
-					print $f;
-				}
+				if ($gm <= $tm) { print $f; }
 			}
 		}' "$@" 2>/dev/null
 }
