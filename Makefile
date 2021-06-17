@@ -41,7 +41,7 @@ endif
 dotfiles: $(DOTFILES)
 
 $(DOTFILES):
-	@$(MAKE) -j --no-print-directory -C $@ dotfiles
+	@$(MAKE) --no-print-directory -C $@ dotfiles
 
 $(BOOTSTRAP):
-	@$(MAKE) -j --no-print-directory -C $@ bootstrap
+	@$(MAKE) --no-print-directory -C $@ bootstrap
