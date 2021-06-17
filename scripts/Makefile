@@ -1,7 +1,4 @@
-.PHONY: all
-all: files
-
-.PHONY: files
-files: *.sh
+.PHONY: dotfiles
+dotfiles: *.sh
 	mkdir -p $(HOME)/bin
 	cp -f $^ $(HOME)/bin

@@ -1,6 +1,3 @@
-.PHONY: all
-all: files
-
-.PHONY: files
-files: .ctags
+.PHONY: dotfiles
+dotfiles: .ctags
 	cp -f $^ $(HOME)

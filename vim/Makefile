@@ -1,5 +1,5 @@
-.PHONY: all
-all: tree files ftplugin plugins minisnip
+.PHONY: dotfiles
+dotfiles: tree files ftplugin plugins minisnip
 
 .PHONY: tree
 tree:

@@ -1,6 +1,3 @@
-.PHONY: all
-all: files
-
-.PHONY: files
-files: .macos
+.PHONY: dotfiles
+dotfiles: .macos
 	cp -f $^ $(HOME)

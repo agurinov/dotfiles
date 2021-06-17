@@ -1,6 +1,3 @@
-.PHONY: all
-all: files
-
-.PHONY: files
-files: .gitconfig
+.PHONY: dotfiles
+dotfiles: .gitconfig
 	cp -f $^ $(HOME)

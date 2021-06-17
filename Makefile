@@ -7,38 +7,41 @@ HAS_git := $(shell command -v git;)
 HAS_ctags := $(shell command -v ctags;)
 HAS_golang := $(shell command -v go;)
 
-# Two kinds of components available: auto and manual
-# auto:   installed via default target `make`
-# manual: installed via manual command `make ${MODULE}`
-AUTO := scripts editorconfig
-MANUAL :=
+# Two kinds of components available: dotfiles and bootstrap
+# dotfiles:  installed via `make`
+# bootstrap: installed via `make ${COMPONENT}`
+DOTFILES := scripts editorconfig
+BOOTSTRAP :=
 
+ifeq ($(UNAME),Darwin)
+	DOTFILES := $(DOTFILES) macos
+endif
 ifdef HAS_bash
-	AUTO := $(AUTO) bash
+	DOTFILES := $(DOTFILES) bash
 endif
 ifdef HAS_tmux
-	AUTO := $(AUTO) tmux
+	DOTFILES := $(DOTFILES) tmux
 endif
 ifdef HAS_vim
-	AUTO := $(AUTO) vim
+	DOTFILES := $(DOTFILES) vim
 endif
 ifdef HAS_git
-	AUTO := $(AUTO) git
+	DOTFILES := $(DOTFILES) git
 endif
 ifdef HAS_ctags
-	AUTO := $(AUTO) ctags
+	DOTFILES := $(DOTFILES) ctags
 endif
-ifeq ($(UNAME),Darwin)
-	AUTO := $(AUTO) macos
-endif
-
 ifdef HAS_golang
-	MANUAL := $(MANUAL) golang
+	BOOTSTRAP := $(BOOTSTRAP) golang
 endif
 
-.PHONY: all $(AUTO) $(MANUAL)
+.PHONY: dotfiles $(DOTFILES) $(BOOTSTRAP)
 
-all: $(AUTO)
+.DEFAULT_GOAL := dotfiles
+dotfiles: $(DOTFILES)
 
-$(AUTO) $(MANUAL):
-	@$(MAKE) -C $@
+$(DOTFILES):
+	@$(MAKE) --no-print-directory -C $@ dotfiles
+
+$(BOOTSTRAP):
+	@$(MAKE) --no-print-directory -C $@ bootstrap

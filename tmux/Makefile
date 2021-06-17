@@ -1,6 +1,3 @@
-.PHONY: all
-all: files
-
-.PHONY: files
-files: .tmux.conf
+.PHONY: dotfiles
+dotfiles: .tmux.conf
 	cp -f $^ $(HOME)
